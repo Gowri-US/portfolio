@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profile from "../assets/profile.jpeg";
+import profile from "/profile.jpeg";
 import SocialLinks from "./SocialLinks";
 
 const floatVariants = {
@@ -16,12 +16,28 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
+};
+
+const downloadResume = () => {
+  const link = document.createElement("a");
+  link.href = "/Gowri_US.pdf";
+  link.download = "Gowri_US.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };
 
 const ProfileSection = () => {
   return (
-    <section id="home" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 relative overflow-hidden">
+    <section
+      id="home"
+      className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 relative overflow-hidden"
+    >
       {/* Ambient glow blobs */}
       <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-red-500/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl pointer-events-none" />
@@ -53,7 +69,11 @@ const ProfileSection = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <img src={profile} alt="Gowri" className="w-full h-full object-cover" />
+              <img
+                src={profile}
+                alt="Gowri"
+                className="w-full h-full object-cover"
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -65,15 +85,24 @@ const ProfileSection = () => {
           initial="hidden"
           animate="visible"
         >
-          <motion.h2 variants={itemVariants} className="text-xl md:text-2xl font-semibold mb-3">
+          <motion.h2
+            variants={itemVariants}
+            className="text-xl md:text-2xl font-semibold mb-3"
+          >
             Hey I'm <span className="text-red-500">Gowri U S</span>
           </motion.h2>
 
-          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl font-black mb-6 text-red-500">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-5xl font-black mb-6 text-red-500"
+          >
             Flutter Developer
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+          <motion.p
+            variants={itemVariants}
+            className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8 max-w-xl mx-auto md:mx-0"
+          >
             I'm a Flutter & React developer based in Trivandrum, focused on
             building fast, reliable apps that people actually enjoy using. From
             real-time delivery systems to fluid animated interfaces, I've
@@ -84,19 +113,61 @@ const ProfileSection = () => {
             <SocialLinks />
           </motion.div>
 
-          <motion.button
+          <motion.a
+            href="#contact"
             variants={itemVariants}
-            whileHover={{ scale: 1.06, boxShadow: "0 0 30px rgba(239,68,68,0.5)" }}
+            whileHover={{
+              scale: 1.06,
+              boxShadow: "0 0 30px rgba(239,68,68,0.5)",
+            }}
             whileTap={{ scale: 0.96 }}
-            className="relative overflow-hidden bg-red-500 text-white px-8 py-3 rounded-lg font-bold text-base sm:text-lg shadow-lg shadow-red-500/20 mt-2"
+            className="relative inline-flex items-center justify-center overflow-hidden
+             bg-red-500 hover:bg-red-600 text-white
+             px-8 py-3 rounded-lg font-semibold text-base sm:text-lg
+             shadow-lg shadow-red-500/20 mt-2 transition-all duration-300"
           >
             <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+              className="absolute inset-0 bg-gradient-to-r
+               from-transparent via-white/20 to-transparent -skew-x-12"
               initial={{ x: "-100%" }}
               animate={{ x: "200%" }}
-              transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut", repeatDelay: 1 }}
+              transition={{
+                repeat: Infinity,
+                duration: 2.2,
+                ease: "easeInOut",
+                repeatDelay: 1,
+              }}
             />
-            Hire Me
+
+            <span className="relative z-10">Hire Me</span>
+          </motion.a>
+          <motion.button
+            onClick={downloadResume}
+            variants={itemVariants}
+            whileHover={{
+              scale: 1.06,
+              boxShadow: "0 0 30px rgba(239,68,68,0.5)",
+            }}
+            whileTap={{ scale: 0.96 }}
+            className="relative inline-flex items-center justify-center overflow-hidden
+             border-2 border-red-500 text-red-500 mx-10
+             px-8 py-3 rounded-full text-base sm:text-lg
+             shadow-lg shadow-red-500/20 mt-2 transition-all duration-300"
+          >
+            <motion.span
+              className="absolute inset-0 bg-gradient-to-r
+               from-transparent via-white/20 to-transparent -skew-x-12"
+              initial={{ x: "-100%" }}
+              animate={{ x: "200%" }}
+              transition={{
+                repeat: Infinity,
+                duration: 2.2,
+                ease: "easeInOut",
+                repeatDelay: 1,
+              }}
+            />
+
+            <span className="relative z-10 ">Download CV</span>
           </motion.button>
         </motion.div>
       </div>

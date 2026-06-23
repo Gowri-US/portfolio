@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import developer from "../assets/developer.png";
+import developer from "/developer.png";
 import AnimatedHeading from "./AnimatedHeading";
 
 const paragraphVariants = {
