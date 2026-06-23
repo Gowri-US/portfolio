@@ -73,7 +73,7 @@ const ProfileSection = () => {
             Flutter Developer
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="text-gray-400 text-xs leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+          <motion.p variants={itemVariants} className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
             I'm a Flutter & React developer based in Trivandrum, focused on
             building fast, reliable apps that people actually enjoy using. From
             real-time delivery systems to fluid animated interfaces, I've

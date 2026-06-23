@@ -16,8 +16,14 @@ const AboutSection = () => {
   const imgRef = useRef(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const rotateX = useSpring(useTransform(mouseY, [-100, 100], [10, -10]), { stiffness: 150, damping: 20 });
-  const rotateY = useSpring(useTransform(mouseX, [-100, 100], [-10, 10]), { stiffness: 150, damping: 20 });
+  const rotateX = useSpring(useTransform(mouseY, [-100, 100], [10, -10]), {
+    stiffness: 150,
+    damping: 20,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-100, 100], [-10, 10]), {
+    stiffness: 150,
+    damping: 20,
+  });
 
   const handleMouseMove = (e) => {
     const rect = imgRef.current?.getBoundingClientRect();
@@ -32,22 +38,25 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20">
+    <section
+      id="about"
+      className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20"
+    >
+        <AnimatedHeading
+          text="About Me"
+          className="text-3xl md:text-4xl text-center md:text-left font-bold text-red-500 mb-6"
+        />
       <div className="flex flex-col lg:flex-row items-center gap-16">
+      
         <div className="w-full lg:w-2/3">
-          <AnimatedHeading
-            text="About Me"
-            className="text-3xl md:text-4xl font-bold text-red-500 mb-6"
-          />
-
           {[
-            "I'm Gowri U S, a dedicated and performance-oriented Flutter Developer with 2 years of professional experience in building production-ready, scalable, and user-focused mobile applications for both Android and iOS.",
-            "I have successfully developed and deployed complete applications from scratch to production, with strong expertise across the full mobile app development lifecycle. My experience includes integrating Firebase services such as OTP authentication, push notifications, and real-time data handling.",
-            "I've actively contributed to commercial delivery and business management applications, ensuring smooth UI/UX, reliable performance, and seamless backend connectivity.",
+            "I'm a Software Developer specializing in Flutter, with 2 years of experience building scalable Android, iOS, and Web applications. I enjoy transforming ideas into high-performance products that deliver seamless user experiences.",
+            "My experience includes integrating Firebase services such as OTP authentication, push notifications, real-time data handling, REST APIs, real-time Socket.IO integrations, payment gateways, and location-based services. I've successfully developed and deployed customer, merchant, delivery, and admin platforms used in real-world business operations.",
+            "I focus on writing clean, maintainable code, optimizing application performance, and creating solutions that are reliable, scalable, and user-centric.",
           ].map((text, i) => (
             <motion.p
               key={i}
-              className="text-gray-400 text-xs leading-relaxed mb-4 max-w-xl mx-auto md:mx-0"
+              className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4 max-w-xl mx-auto md:mx-0"
               custom={i}
               variants={paragraphVariants}
               initial="hidden"
@@ -59,7 +68,10 @@ const AboutSection = () => {
           ))}
         </div>
 
-        <div className="w-full lg:w-1/3 flex justify-center" style={{ perspective: 800 }}>
+        <div
+          className="w-full lg:w-1/3 flex justify-center"
+          style={{ perspective: 800 }}
+        >
           <motion.div
             ref={imgRef}
             style={{ rotateX, rotateY }}
@@ -71,7 +83,11 @@ const AboutSection = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="w-64 h-64 rounded-2xl overflow-hidden border border-red-500/20 shadow-[0_0_50px_rgba(239,68,68,0.15)] cursor-pointer"
           >
-            <img src={developer} alt="Developer" className="w-full h-full object-cover" />
+            <img
+              src={developer}
+              alt="Developer"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
         </div>
       </div>

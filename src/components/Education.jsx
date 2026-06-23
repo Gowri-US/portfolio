@@ -7,35 +7,35 @@ const education = [
     title: "Bachelor's in Computer Applications",
     institute: "Kerala University",
     score: "8.02 CGPA",
-    location: "Thiruvananthapuram Kerala",
+    location: "Trivandrum",
   },
   {
     period: "Jun 2019 — May 2021",
     title: "Computer Science",
     institute: "Govt Model Girls Higher Secondary School Pattom",
     score: "95.25%",
-    location: "Thiruvananthapuram Kerala",
+    location: "Trivandrum",
   },
   {
     period: "Jun 2018 — May 2019",
     title: "High School",
     institute: "Govt Model Girl Higher Secondary School Cottonhill",
     score: "95%",
-    location: "Thiruvananthapuram Kerala",
+    location: "Trivandrum",
   },
 ];
 
 const EducationSection = () => {
   return (
-    <section id="education" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20">
+    <section id="education" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 ">
       <div className="flex flex-col lg:flex-row items-center gap-16">
         <AnimatedHeading
           text="Education"
-          className="text-3xl md:text-4xl font-bold text-red-500 mb-6"
+          className="text-3xl md:text-4xl font-bold text-red-500"
         />
 
         <div className="w-full lg:w-2/3 flex justify-center">
-          <div className="relative mt-14 pl-6">
+          <div className="relative mt-5 md:mt-14 pl-6">
             <div className="absolute left-3 top-0 bottom-0 border-l-2 border-dashed border-red-500/20" />
             <motion.div
               className="absolute left-3 top-0 border-l-2 border-dashed border-red-500"
@@ -69,12 +69,12 @@ const EducationSection = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     <div className="flex flex-col sm:flex-row sm:justify-between gap-2">
-                      <h3 className="text-xl font-semibold text-red-500">{edu.title}</h3>
-                      <span className="text-sm text-gray-400">{edu.period}</span>
+                      <h3 className="text-md md:text-xl font-semibold text-red-500">{edu.title}</h3>
+                    
                     </div>
 
                     <motion.p
-                      className="mt-1 text-gray-300"
+                      className="mt-1 text-gray-300 text-xs md:text-md"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -82,11 +82,12 @@ const EducationSection = () => {
                     >
                       {edu.institute}
                     </motion.p>
-
-                    <div className="mt-2 flex gap-4 text-sm text-gray-400">
+           <div className="mt-2 flex gap-4 text-xs md:text-sm text-gray-400 ">{edu.period}</div>
+                    <div className="mt-2 flex gap-4 text-xs md:text-sm text-gray-400 ">
                       <span>📍 {edu.location}</span>
                       <span>🎯 {edu.score}</span>
                     </div>
+         
                   </motion.div>
                 </motion.div>
               ))}
